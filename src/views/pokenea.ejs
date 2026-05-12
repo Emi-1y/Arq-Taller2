@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Pokeneas</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        background-color: #111111;
+        color: #f0f0f0;
+        font-family: 'Segoe UI', sans-serif;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .api-btn {
+  display: inline-block;
+  margin-bottom: 1.2rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #cc0000;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: background-color 0.2s;
+}
+
+.api-btn:hover {
+  background-color: #ff2222;
+}
+
+      .container {
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+        background-color: #1c1c1c;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+      }
+
+      /* Mitad roja superior */
+      .top-half {
+        background-color: #cc0000;
+        padding: 2rem 2rem 3rem;
+        position: relative;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 700;
+      }
+
+      /* Línea central pokeball */
+      .pokeball-divider {
+        position: relative;
+        height: 28px;
+        background: linear-gradient(to bottom, #cc0000 50%, #1c1c1c 50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .pokeball-divider::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 6px;
+        background-color: #111111;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .pokeball-btn {
+        width: 36px;
+        height: 36px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        border: 5px solid #111111;
+        z-index: 1;
+        box-shadow: 0 0 0 3px #ffffff;
+      }
+
+      /* Mitad negra inferior */
+      .bottom-half {
+        background-color: #1c1c1c;
+        padding: 1.5rem 2rem 2rem;
+      }
+
+      img {
+        width: 220px;
+        height: 220px;
+        object-fit: contain;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 6px solid #111111;
+        margin-top: -60px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      }
+
+      .phrase {
+        font-size: 1rem;
+        font-style: italic;
+        color: #cccccc;
+        line-height: 1.7;
+        margin: 1.5rem 0;
+        padding: 1rem;
+        border-left: 3px solid #cc0000;
+        text-align: left;
+      }
+
+      .container-id {
+        color: #666;
+        font-size: 0.8rem;
+        padding-top: 1rem;
+        border-top: 1px solid #333;
+      }
+
+      .container-id strong {
+        color: #cc0000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-half">
+        <h1><%= pokenea.getName() %></h1>
+      </div>
+
+      <div class="pokeball-divider">
+        <div class="pokeball-btn"></div>
+      </div>
+
+      <div class="bottom-half">
+        <img src="<%= pokenea.getImage() %>" alt="<%= pokenea.getName() %>" />
+        <p class="phrase">"<%= pokenea.getPhrase() %>"</p>
+        <div class="container-id">
+          <a href="/api/pokenea" class="api-btn">Ver JSON →</a>
+          Container ID: <strong><%= containerId %></strong>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
