@@ -5,4 +5,4 @@ RUN npm install --omit=dev
 COPY . .
 EXPOSE 3000
 ENV NODE_ENV=production
-CMD ["node", "server.js"]
+CMD ["node", "index.js"]
